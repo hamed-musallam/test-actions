@@ -36,7 +36,7 @@ jobs:
             fs.writeFileSync(filepath,`export default { version: 10};`);
       - name: "commit changes"
         uses: actions/checkout@v2
-        run: |
+      - run: |
           git config user.email hamed.musallam@gmail.com
           git config user.name "hamed musallam"
           git commit -am "new version"
