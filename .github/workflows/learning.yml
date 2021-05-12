@@ -35,5 +35,6 @@ jobs:
       - run: |
           git config user.email hamed.musallam@gmail.com
           git config user.name "hamed musallam"
+          git add .
           git commit -am "new version"
           git push
