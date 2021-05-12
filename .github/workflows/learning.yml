@@ -28,7 +28,7 @@ jobs:
         with:
           script: |
             var fs = require('fs'); 
-            const filepath = '../../src/versionInfo.js';
+            const filepath = 'src/versionInfo.js';
             fs.writeFileSync(filepath,`export default { version: 10};`);
       - name: "commit changes"
         uses: actions/checkout@v2
