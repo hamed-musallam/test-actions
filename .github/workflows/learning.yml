@@ -22,21 +22,8 @@ jobs:
     name: second job
     runs-on: ubuntu-latest
     steps:
-      - name: "commit changes"
-        uses: actions/checkout@v2
-        with: 
-         path: "./"
+      - uses: actions/checkout@v2
       - name: "update version"
-        uses: actions/github-script@v3
-        id: set-result
-        with:
-          script: |
-            var fs = require('fs'); 
-            const filepath = 'src/versionInfo.js';
-            fs.writeFileSync(filepath,`export default { version: 10};`);
-      - run: |
-          git config user.email hamed.musallam@gmail.com
-          git config user.name "hamed musallam"
-          git add .
-          git commit -am "new version"
-          git push
+        run: |
+          echo `export default { version: 100};` > src/versionInfo.js
+          
