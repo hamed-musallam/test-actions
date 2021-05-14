@@ -23,8 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          path: "./"
       - name: "update version"
         run: |
-          echo  "export default { version: 100 };" > ./src/versionInfo.js
+          echo  "export default { version: 100 };" > src/versionInfo.js
       - uses: actions/setup-node@v2
-    
