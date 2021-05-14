@@ -25,5 +25,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: "update version"
         run: |
-          echo `export default { version: 100};` > src/versionInfo.js
+          echo  "export default { version: 100 };" > src/versionInfo.js
           
