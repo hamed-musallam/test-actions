@@ -1,9 +1,6 @@
 name: gh-pages publish
 
-on:
-  push:
-    tags:
-      - "*"
+on: push
 
 jobs:
   build:
