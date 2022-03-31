@@ -14,11 +14,6 @@ jobs:
         run: |
           npm ci
           npm i -g gh-pages
-      - name: Update version number
-        run: |
-          newPackage=$(jq 'setpath(["homepage"]; ".")' package.json)
-          echo $newPackage > package.json
-          npm run build
       - name: Push to gh-pages
         run: |
           git config user.email hamed.musallam@gmail.com
