@@ -23,5 +23,5 @@ jobs:
         run: |
           git config user.email "hamed-musallam"
           git config user.name "hamed musallam"
-          git remote set-url origin https://hamed-musallam:${{secrets.ACCESS}}@github.com/test-actions
+          git remote set-url origin https://${{secrets.ACCESS}}@github.com/test-actions 
           gh-pages  -d build --dotfiles
