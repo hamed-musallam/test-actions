@@ -1,0 +1,30 @@
+name: gh-pages publish
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm i -g gh-pages
+      - name: Update version number
+        run: |
+          newPackage=$(jq 'setpath(["homepage"]; ".")' package.json)
+          echo $newPackage > package.json
+          npm run build
+      - name: Push to gh-pages
+        run: |
+          git config user.email "hamed-musallam"
+          git config user.name "hamed musallam"
+          git remote set-url origin https://${ACCESS}@github.com/test-actions
+          gh-pages  -d build --dotfiles
