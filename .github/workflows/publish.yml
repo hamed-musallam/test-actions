@@ -21,7 +21,7 @@ jobs:
           npm run build
       - name: Push to gh-pages
         run: |
-          git config user.email "hamed-musallam"
+          git config user.email hamed.musallam@gmail.com
           git config user.name "hamed musallam"
-          git remote set-url origin https://${{secrets.ACCESS}}@github.com/test-actions 
+          git remote set-url origin https://${{secrets.ACCESS}}@github.com/${{ github.repository }} 
           gh-pages  -d build --dotfiles
